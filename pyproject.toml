@@ -1,0 +1,28 @@
+[project]
+name = "pr-guard"
+version = "0.1.0"
+description = "在 CI 中校验 PR 描述是否包含必需章节且内容非空"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Tao19820627" }]
+keywords = ["pull-request", "ci", "review", "workflow"]
+
+[project.scripts]
+pr-guard = "pr_guard.cli:main"
+
+[tool.setuptools]
+packages = ["pr_guard"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.10"
+disallow_untyped_defs = true
+warn_unused_ignores = true
+strict_equality = true
